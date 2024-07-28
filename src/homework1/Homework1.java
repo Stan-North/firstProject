@@ -118,8 +118,8 @@ public class Homework1 {
         // прибыль до налогов больше 1_000_000 до 2_000_000, облагается ставкой 10%
         // прибыль до налогов до 1_000_000 (включительно), облагается ставкой 8%
         BigDecimal taxes;
-        BigDecimal upperLimit = new BigDecimal("2000000");
-        BigDecimal lowerLimit = new BigDecimal("1000000");
+        BigDecimal upperLimit = BigDecimal.valueOf(2000000L);
+        BigDecimal lowerLimit = BigDecimal.valueOf(1000000L);
         if (incomeBeforeTaxes.compareTo(upperLimit) > 0){
             taxes = BigDecimal.valueOf(13L).multiply(incomeBeforeTaxes);
             taxes = taxes.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
