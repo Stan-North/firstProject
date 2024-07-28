@@ -58,11 +58,9 @@ public class Homework1 {
     public static void ex4() {
         String simply = "this is simply. This is my favorite song.";
         simply = simply.replace("this is", "those are");
-        int firstIndex =  simply.indexOf('o');
+        int firstIndex = simply.indexOf('o');
         int secondIndex = simply.indexOf('o', firstIndex+1);
         System.out.println(secondIndex);
-
-        //those are simply. This is my favorite song.
     }
 
     /**
@@ -75,33 +73,26 @@ public class Homework1 {
 
     public static void incomeAfterTaxes(int sausageQtty, int hamQtty, int neckQtty){
         int sausagePrice = 800;
-        int sausageCostLess1000 = 412;
-        int sausageCostBetween1000and2000 = 408;
-        int sausageCostFrom2000 = 404;
         int sasuageResultCost;
 
-        //Себестоимость от количества
         if (sausageQtty < 1000){
-            sasuageResultCost = sausageCostLess1000;
+            sasuageResultCost = 412;
         } else if ((sausageQtty > 1000) && (sausageQtty < 2000)) {
-            sasuageResultCost = sausageCostBetween1000and2000;
+            sasuageResultCost = 408;
         }else {
-            sasuageResultCost = sausageCostFrom2000;
+            sasuageResultCost = 404;
         }
 
         int hamPrice = 350;
         int hamResultCost = 275;
 
         int neckPrice = 500;
-        int neckCostLess500 = 311;
-        int neckCostfrom500 = 299;
         int neckResultCost;
 
-        //Себестоимость от количества
         if (neckQtty < 500){
-            neckResultCost = neckCostLess500;
+            neckResultCost = 311;
         }else {
-            neckResultCost = neckCostfrom500;
+            neckResultCost = 299;
         }
 
         //Доход компании
@@ -111,7 +102,7 @@ public class Homework1 {
                 + ((long)neckQtty * neckPrice));
         System.out.println("Доход компании: " + companyIncome);
 
-        //Расход компании (умношение себестоимости на количество проданных кг + миллион рублей)
+        //Расход компании (умножение себестоимости на количество проданных кг + миллион рублей)
         BigDecimal companyExpenses = BigDecimal.valueOf(
                 ((long)sausageQtty * sasuageResultCost)
                 + ((long)hamQtty * hamResultCost)
@@ -127,12 +118,12 @@ public class Homework1 {
         // прибыль до налогов больше 1_000_000 до 2_000_000, облагается ставкой 10%
         // прибыль до налогов до 1_000_000 (включительно), облагается ставкой 8%
         BigDecimal taxes;
-        BigDecimal b1 = new BigDecimal("2000000");
-        BigDecimal b2 = new BigDecimal("1000000");
-        if (incomeBeforeTaxes.compareTo(b1) > 0){
+        BigDecimal upperLimit = new BigDecimal("2000000");
+        BigDecimal lowerLimit = new BigDecimal("1000000");
+        if (incomeBeforeTaxes.compareTo(upperLimit) > 0){
             taxes = BigDecimal.valueOf(13L).multiply(incomeBeforeTaxes);
             taxes = taxes.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
-        } else if ((incomeBeforeTaxes.compareTo(b2) > 0) && (incomeBeforeTaxes.compareTo(b1) < 0)) {
+        } else if ((incomeBeforeTaxes.compareTo(lowerLimit) > 0) && (incomeBeforeTaxes.compareTo(upperLimit) < 0)) {
             taxes = BigDecimal.valueOf(10L).multiply(incomeBeforeTaxes);
             taxes = taxes.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
         }else {
