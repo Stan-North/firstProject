@@ -12,7 +12,7 @@ public class Calc {
         String symbol = scanner.nextLine();
 
         System.out.println("Введите второе число");
-        double secondDigit = scanner.nextDouble();
+        double secondDigit = Double.parseDouble(scanner.nextLine());
 
         if (symbol.equals("+")){
             System.out.println(firstDigit + secondDigit);
