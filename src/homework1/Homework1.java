@@ -114,26 +114,31 @@ public class Homework1 {
         BigDecimal incomeBeforeTaxes = companyIncome.subtract(companyExpenses);
         System.out.println("Прибыль компании до налогов: " + incomeBeforeTaxes);
 
-        // прибыль до налогов больше 2_000_000, облагается ставкой 13%
-        // прибыль до налогов больше 1_000_000 до 2_000_000, облагается ставкой 10%
-        // прибыль до налогов до 1_000_000 (включительно), облагается ставкой 8%
-        BigDecimal taxes;
-        BigDecimal upperLimit = BigDecimal.valueOf(2000000L);
-        BigDecimal lowerLimit = BigDecimal.valueOf(1000000L);
-        if (incomeBeforeTaxes.compareTo(upperLimit) > 0){
-            taxes = BigDecimal.valueOf(13L).multiply(incomeBeforeTaxes);
-            taxes = taxes.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
-        } else if ((incomeBeforeTaxes.compareTo(lowerLimit) > 0) && (incomeBeforeTaxes.compareTo(upperLimit) < 0)) {
-            taxes = BigDecimal.valueOf(10L).multiply(incomeBeforeTaxes);
-            taxes = taxes.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
-        }else {
-            taxes = BigDecimal.valueOf(8L).multiply(incomeBeforeTaxes);
-            taxes = taxes.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
+        BigDecimal taxesOne = BigDecimal.ZERO;
+        BigDecimal taxesTwo = BigDecimal.ZERO;
+        BigDecimal taxesThree = BigDecimal.ZERO;
+        BigDecimal limitToRaise = BigDecimal.valueOf(1_000_000L);
+
+        //Расчет налогов
+        if (incomeBeforeTaxes.compareTo(limitToRaise) <= 0){
+            taxesOne = incomeBeforeTaxes.multiply(BigDecimal.valueOf(0.08));
+        } else{
+            taxesOne = incomeBeforeTaxes.multiply(BigDecimal.valueOf(0.08));
+            BigDecimal remains = incomeBeforeTaxes.subtract(BigDecimal.valueOf(1_000_000L));
+            if (remains.compareTo(limitToRaise) <= 0){
+                taxesTwo = remains.multiply(BigDecimal.valueOf(0.1));
+            }else {
+                taxesTwo = BigDecimal.valueOf(1_000_000L).multiply(BigDecimal.valueOf(0.1));
+                BigDecimal remains2 = remains.subtract(BigDecimal.valueOf(1_000_000L));
+                taxesThree = remains2.multiply(BigDecimal.valueOf(0.13));
+            }
         }
-        System.out.println("Сумма налога: " + taxes);
+        BigDecimal resultTaxes = taxesOne.add(taxesTwo).add(taxesThree);
+
+        System.out.println("Сумма налога: " + resultTaxes);
 
         //Доходы после налогов
-        BigDecimal incomeAfterTaxes = incomeBeforeTaxes.subtract(taxes);
+        BigDecimal incomeAfterTaxes = incomeBeforeTaxes.subtract(resultTaxes);
         System.out.println("Прибыль после налогов: " + incomeAfterTaxes);
     }
 }
