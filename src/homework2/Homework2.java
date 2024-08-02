@@ -17,7 +17,6 @@ public class Homework2 {
     }
 
     public static void ex1() {
-        //Дан массив со словами
         String[] words = {"Это", "шашлык", "на", "шампуре"};
         String resultText = "";
         for (int i = 0; i < words.length; i++) {
@@ -25,10 +24,6 @@ public class Homework2 {
         }
         resultText = resultText.substring(0, resultText.length() - 1);
         System.out.println(resultText);
-
-
-        //С помощью циклов и функции String.substring составить итоговый текст
-        //Это-шашлык-на-шампуре
     }
 
     public static void ex2() {
@@ -84,7 +79,7 @@ public class Homework2 {
             numbers[i] = numbers[numbers.length - 1 - i];
             numbers[numbers.length - 1 - i] = temp;
         }
-        for (int element : numbers){
+        for (int element : numbers) {
             System.out.println(element);
         }
     }
