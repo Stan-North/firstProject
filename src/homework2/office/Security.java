@@ -12,6 +12,6 @@ public class Security {
     }
 
     public void askMoney() {
-        System.out.println("Дайте аванс!å");
+        System.out.println("Дайте аванс!");
     }
 }
