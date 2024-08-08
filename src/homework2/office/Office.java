@@ -1,10 +1,10 @@
 package homework2.office;
 
 public class Office {
-    Boss boss;
-    Manager manager;
-    Security security;
-    Secretary secretary;
+    private Boss boss;
+    private Manager manager;
+    private Security security;
+    private Secretary secretary;
 
     public Office(Boss boss, Manager manager, Security security, Secretary secretary) {
         this.boss = boss;

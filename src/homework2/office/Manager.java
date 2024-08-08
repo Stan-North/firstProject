@@ -1,7 +1,7 @@
 package homework2.office;
 
 public class Manager {
-    String name;
+    private String name;
 
     public Manager(String name) {
         this.name = name;
