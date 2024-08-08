@@ -80,7 +80,7 @@ public class Homework2 {
             numbers[numbers.length - 1 - i] = temp;
         }
         for (int element : numbers) {
-            System.out.println(element);
+            System.out.print(element);
         }
     }
 }
