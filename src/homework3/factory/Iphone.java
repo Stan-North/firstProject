@@ -4,7 +4,7 @@ public class Iphone extends Phone {
     private Processor secondProcessor;
 
     public Iphone(Processor firstProcessor, Processor secondProcessor, Camera camera, Corpus corpus) {
-        super(firstProcessor,camera,corpus);
+        super(firstProcessor, camera, corpus);
         this.secondProcessor = secondProcessor;
     }
 

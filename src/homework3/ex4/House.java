@@ -30,7 +30,7 @@ public final class House {
         return "Улица: " + streetName + ". " + "Номер дома: " + houseNumber;
     }
 
-    protected House createClone(){
+    protected House createClone() {
         return new House(this.streetName, this.houseNumber);
     }
 }

@@ -15,7 +15,7 @@ public final class City {
         for (House house : houses) {
             result += house.toString() + "\n";
         }
-        return "Название города: " + cityName +"\n" + result;
+        return "Название города: " + cityName + "\n" + result;
     }
 
     public String getCityName() {
@@ -24,7 +24,7 @@ public final class City {
 
     public House[] getHouses() {
         House[] newHouses = this.houses.clone();
-            for (int i = 0; i < houses.length ; i++) {
+            for (int i = 0; i < houses.length; i++) {
                 newHouses[i] = newHouses[i].createClone();
             }
         return newHouses;
