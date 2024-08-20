@@ -13,11 +13,13 @@ public class Runner {
         } catch (AliveException e) {
             System.out.println(e.getMessage());
         }
+
         try {
             wolf.attack(rabbit);
         } catch (AliveException e) {
             System.out.println(e.getMessage());
         }
+
         try {
             tiger.attack(wolf);
         } catch (AliveException e) {

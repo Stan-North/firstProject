@@ -21,7 +21,7 @@ public abstract class Alive {
     }
 
     public void setAlive(boolean alive) {
-        isAlive = alive;
+        this.isAlive = alive;
     }
 
     public boolean isAlive() {
