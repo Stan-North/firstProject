@@ -5,9 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Spy extends Computer {
-    private static final String FILE_NAME = "resources/comp.log";
+    private static final String FILE_PATH = "resources/comp.log";
     private static final String USER_LOGOUT_MESSAGE = "Пользователь вышел";
-    private static final File FILE = new File(FILE_NAME);
+    private static final File FILE = new File(FILE_PATH);
 
     private Computer computer;
 
@@ -33,7 +33,7 @@ public class Spy extends Computer {
 
     @Override
     public void printMessage(String message) {
-        try (FileWriter fileWriter = new FileWriter(FILE, true);) {
+        try (FileWriter fileWriter = new FileWriter(FILE, true)) {
             fileWriter.write("Пользователь " + this.user.name + " отправил сообщение: " + message + "\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class Spy extends Computer {
     }
 
     public void printUserLogIn(String name) {
-        try (FileWriter fileWriter = new FileWriter(FILE, true);) {
+        try (FileWriter fileWriter = new FileWriter(FILE, true)) {
             fileWriter.write("Пользователь " + name + " вошел\n");
         } catch (IOException e) {
             e.printStackTrace();
