@@ -5,7 +5,10 @@ import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) {
-        String[] countries = {"Россия", "Франция", "Китай", "Япония", "Турция"};
+
+        String[] countries = {CountriesEnum.RUSSIA.getName(), CountriesEnum.FRANCE.getName(),
+                CountriesEnum.CHINA.getName(), CountriesEnum.JAPAN.getName(), CountriesEnum.TURKEY.getName()};
+
         String filename = "donation.csv";
 
         BigDecimal donationsFromRussia = BigDecimal.ZERO;
@@ -15,7 +18,6 @@ public class Runner {
         BigDecimal donationFromTurkey = BigDecimal.ZERO;
 
         Scanner scanner = new Scanner(homework5.ex1.Runner.class.getClassLoader().getResourceAsStream(filename));
-        System.out.println(scanner.nextLine());
 
         while (scanner.hasNextLine()) {
             String[] donationData = separateLine(scanner.nextLine());
@@ -26,15 +28,16 @@ public class Runner {
             } catch (NumberFormatException e) {
                 e.getMessage();
             }
-            if (country.equals(countries[0])) {
+
+            if (country.equals(CountriesEnum.RUSSIA.getName())) {
                 donationsFromRussia = donationsFromRussia.add(donationValue);
-            } else if (country.equals(countries[1])) {
+            } else if (country.equals(CountriesEnum.FRANCE.getName())) {
                 donationFromFrance = donationFromFrance.add(donationValue);
-            } else if (country.equals(countries[2])) {
+            } else if (country.equals(CountriesEnum.CHINA.getName())) {
                 donationFromChina = donationFromChina.add(donationValue);
-            } else if (country.equals(countries[3])) {
+            } else if (country.equals(CountriesEnum.JAPAN.getName())) {
                 donationFromJapan = donationFromJapan.add(donationValue);
-            } else if (country.equals(countries[4])) {
+            } else if (country.equals(CountriesEnum.TURKEY.getName())) {
                 donationFromTurkey = donationFromTurkey.add(donationValue);
             }
         }
@@ -62,7 +65,7 @@ public class Runner {
         return BigDecimal.valueOf(value);
     }
 
-    //заносим значения в массив
+    //заносим значения донатов в массив
     public static BigDecimal[] createValuesArray(BigDecimal russiaValue, BigDecimal franceValue,
                                              BigDecimal chinaValue, BigDecimal japanValue, BigDecimal turkeyValue) {
         return new BigDecimal[]{russiaValue, franceValue, chinaValue, japanValue, turkeyValue};

@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Spy extends Computer {
-    private static final String FILE_PATH = "resources/comp.log";
+    private static final String FILE_PATH = "comp.log";
     private static final String USER_LOGOUT_MESSAGE = "Пользователь вышел";
     private static final File FILE = new File(FILE_PATH);
 
