@@ -11,6 +11,7 @@ public class Runner {
 
         String filename = "donation.csv";
 
+        //переменные, куда будут плюсоваться донаты
         BigDecimal donationsFromRussia = BigDecimal.ZERO;
         BigDecimal donationFromFrance = BigDecimal.ZERO;
         BigDecimal donationFromChina = BigDecimal.ZERO;
@@ -43,10 +44,10 @@ public class Runner {
         }
         scanner.close();
 
-        BigDecimal[] donationSumPerCountry = createValuesArray(donationsFromRussia, donationFromFrance,
+        BigDecimal[] donationSumArrayPerCountry = createValuesArray(donationsFromRussia, donationFromFrance,
                 donationFromChina, donationFromJapan, donationFromTurkey);
 
-        printStatistics(countries, donationSumPerCountry);
+        printStatistics(countries, donationSumArrayPerCountry);
     }
 
     //делим строку
