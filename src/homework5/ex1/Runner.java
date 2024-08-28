@@ -2,6 +2,7 @@ package homework5.ex1;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Runner {
     public static void main(String[] args) {
@@ -62,7 +63,13 @@ public class Runner {
 
     //парсим значение доната
     public static BigDecimal getDonationValue(String[] splittedLine) throws NumberFormatException {
-        double value = Double.parseDouble(splittedLine[1].replace(",", "."));
+        Pattern pattern = Pattern.compile("^\\d*,\\d*$");
+        double value;
+        if (pattern.matcher(splittedLine[1]).find()) {
+            value = Double.parseDouble(splittedLine[1].replace(",", "."));
+        } else {
+            throw new NumberFormatException("Не является числом");
+        }
         return BigDecimal.valueOf(value);
     }
 
