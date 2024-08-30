@@ -18,7 +18,7 @@ public class Spy extends Computer {
     @Override
     public void login(String userName) {
         printUserLogIn(userName);
-        super.login(userName);
+        this.computer.login(userName);
     }
 
     @Override
