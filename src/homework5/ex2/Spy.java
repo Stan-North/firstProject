@@ -28,7 +28,7 @@ public class Spy extends Computer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        super.logOut();
+        this.computer.logOut();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Spy extends Computer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        super.printMessage(message);
+        this.computer.printMessage(message);
     }
 
     public void printUserLogIn(String name) {
